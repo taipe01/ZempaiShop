@@ -41,10 +41,36 @@
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             width: 200px;
+            text-align: center;
         }
         .product img {
             width: 100%;
             border-radius: 8px;
+        }
+        .add-to-cart {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .add-to-cart:hover {
+            background-color: #0056b3;
+        }
+        .cart {
+            margin-top: 30px;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
         }
         .whatsapp-button {
             display: inline-block;
@@ -71,14 +97,40 @@
             <img src="https://via.placeholder.com/200" alt="Audífonos Apple">
             <h3>Audífonos Apple</h3>
             <p>S/150</p>
+            <button class="add-to-cart" onclick="addToCart('Audífonos Apple', 150)">Agregar al carrito</button>
         </div>
         <div class="product">
             <img src="https://via.placeholder.com/200" alt="Mouse Logitech">
             <h3>Mouse Logitech</h3>
             <p>S/80</p>
+            <button class="add-to-cart" onclick="addToCart('Mouse Logitech', 80)">Agregar al carrito</button>
         </div>
     </div>
 
-    <a class="whatsapp-button" href="https://wa.me/51999999999">📲 Hacer Pedido</a>
+    <div class="cart">
+        <h2>🛒 Carrito de Compras</h2>
+        <div id="cart-items"></div>
+        <h3>Total: S/<span id="total-price">0</span></h3>
+        <a id="whatsapp-link" class="whatsapp-button" href="#" target="_blank">📲 Hacer Pedido</a>
+    </div>
+
+    <script>
+        let cart = [];
+        function addToCart(product, price) {
+            cart.push({ product, price });
+            updateCart();
+        }
+        function updateCart() {
+            let cartItems = document.getElementById("cart-items");
+            let totalPrice = 0;
+            cartItems.innerHTML = "";
+            cart.forEach(item => {
+                cartItems.innerHTML += `<div class='cart-item'><span>${item.product}</span><span>S/${item.price}</span></div>`;
+                totalPrice += item.price;
+            });
+            document.getElementById("total-price").innerText = totalPrice;
+            document.getElementById("whatsapp-link").href = `https://wa.me/51999999999?text=Pedido:%20${encodeURIComponent(JSON.stringify(cart))}`;
+        }
+    </script>
 </body>
 </html>
