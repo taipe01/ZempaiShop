@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZempaiShop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+        p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+        .product {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 200px;
+        }
+        .product img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .whatsapp-button {
+            display: inline-block;
+            background-color: #25D366;
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+        .whatsapp-button:hover {
+            background-color: #1ebe5d;
+        }
+    </style>
+</head>
+<body>
+    <h1>ZempaiShop</h1>
+    <p>Importaciones exclusivas desde EE.UU. al mejor precio.</p>
+
+    <div class="product-container">
+        <div class="product">
+            <img src="https://via.placeholder.com/200" alt="Audífonos Apple">
+            <h3>Audífonos Apple</h3>
+            <p>S/150</p>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/200" alt="Mouse Logitech">
+            <h3>Mouse Logitech</h3>
+            <p>S/80</p>
+        </div>
+    </div>
+
+    <a class="whatsapp-button" href="https://wa.me/51999999999">📲 Hacer Pedido</a>
+</body>
+</html>
